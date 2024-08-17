@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+</head>
+<body>
+    <h1>Welcome to my website!</h1>
+    <p>Please fill inputs.</p>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label>Enter a noun</label>
+            <input type="text" name="noun" required>
+        </div>
+        <div>
+            <label>Enter a verb</label>
+            <input type="text" name="verb" required>
+        </div>
+        <div>
+            <label>Enter an adjective</label>
+            <input type="text" name="adjective" required>
+        </div>
+        <div>
+            <label>Enter an adverb</label>
+            <input type="text" name="adverb" required>
+        </div>
+        <div>
+            <input type="submit" value="SUBMIT">
+        </div>
+    </form>
+    {% if combined_sentence %}
+    <h2>Combined Sentence:</h2>
+    <p>{{ combined_sentence }}</p>
+    {% endif %}
+</body>
+</html>
